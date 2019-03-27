@@ -1,3 +1,4 @@
+" Disable compatability with old vi
 set nocompatible
 
 " ---------------------------------------------------------------------------- "
