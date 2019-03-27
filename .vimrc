@@ -397,3 +397,10 @@ if executable('pyls')
         autocmd FileType python setlocal omnifunc=lsp#complete
     augroup end
 endif
+
+" -----------------------------------------------------------------------------"
+" External links
+" -----------------------------------------------------------------------------"
+"
+" For A Barebones Starter Config
+" https://devel.tech/snippets/n/vIMmz8vZ/minimal-vim-configuration-with-vim-plug/
