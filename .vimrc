@@ -48,6 +48,12 @@ Plug 'lervag/vimtex',                       { 'for': 'tex' }
 " NERD tree will be loaded on the first invocatio of NERDTreeToggle command
 Plug 'scrooloose/nerdtree',                 {'on': 'NERDTreeToggle'}
 
+"TabNine autocompletion"
+Plug 'zxqfl/tabnine-vim'
+
+"You complete me, YCM"
+Plug 'Valloric/YouCompleteMe'
+
 call plug#end()
 
 " ---------------------------------------------------------------------------- "
