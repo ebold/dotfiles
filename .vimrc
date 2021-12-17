@@ -1,3 +1,15 @@
+" ---------------------------------------------------------------------------- "
+" IMPORTANT NOTICE
+"
+" Prerequisites: installation of 'curl' and 'vim'
+"
+" Install a full version of vim with 'sudo apt install vim' if you get
+" a following error after installing vim-plug:
+"
+" E319: Sorry, the command is not available in this version: call plug#begin('~/.vim/plugged')
+"
+" ---------------------------------------------------------------------------- "
+
 " Disable compatability with old vi
 set nocompatible
 
@@ -6,9 +18,9 @@ set nocompatible
 " -----------------------------------------------------------------------------"
 
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source ~/.vimrc
+  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
 endif
 
 " ---------------------------------------------------------------------------- "
