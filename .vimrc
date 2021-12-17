@@ -29,6 +29,12 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Automatic installation of missing plugins on startup
+
+if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
+  autocmd VimEnter * PlugInstall | q
+endif
+
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'ap/vim-buftabline'
