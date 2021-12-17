@@ -86,6 +86,7 @@ endif
 
 " solarized
 try
+    let g:solarized_termtrans=1 "this fixed grey background in xterm-256color
     colorscheme solarized
 catch
 endtry
