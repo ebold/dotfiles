@@ -329,6 +329,7 @@ augroup end
 " Plugin Configuration                                                         "
 " ---------------------------------------------------------------------------- "
 " NERDTree
+" [Ctrl+n] - toggle file navigation
 map <C-n> :NERDTreeToggle<CR>
 
 " vim-bbye
