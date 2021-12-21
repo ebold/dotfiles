@@ -72,6 +72,9 @@ Plug 'scrooloose/nerdtree',                 {'on': 'NERDTreeToggle'}
 "You complete me, YCM"
 Plug 'ycm-core/YouCompleteMe'
 
+"Vim dispatch"
+Plug 'tpope/vim-dispatch'
+
 call plug#end()
 
 " ---------------------------------------------------------------------------- "
@@ -423,6 +426,22 @@ if executable('pyls')
         autocmd FileType python setlocal omnifunc=lsp#complete
     augroup end
 endif
+
+" vim-dispatch
+
+" Open quickfix window and scroll to bottom
+" [Ctrl+m] + m  - open quickfix window
+nnoremap    <C-m>m    :copen<CR> <bar> G
+" Build/clean debug and release targets
+" [Ctrl+m] + b   - build a debug and release binaries
+" [Ctlr+m] + b+d - build a debug binary
+" [Ctrl+m] + c   - clean a debug and release binaries
+" [Ctrl+m] + c+d - clean a debug binary
+nnoremap    <C-m>b    :Dispatch! make -C build/debug; make -C build/release<CR>
+nnoremap    <C-m>bd   :Dispatch! make -C build/debug<CR>
+nnoremap    <C-m>br   :Dispatch! make -C build/release<CR>
+nnoremap    <C-m>c    :Dispatch! make clean -C build/debug; make clean -C build/release<CR>
+nnoremap    <C-m>cd   :Dispatch! make clean -C build/debug<CR>
 
 " -----------------------------------------------------------------------------"
 " External links
