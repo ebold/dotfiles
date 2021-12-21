@@ -67,7 +67,7 @@ Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'scrooloose/nerdtree',                 {'on': 'NERDTreeToggle'}
 
 "TabNine autocompletion"
-Plug 'zxqfl/tabnine-vim'
+"Plug 'zxqfl/tabnine-vim'
 
 "You complete me, YCM"
 Plug 'Valloric/YouCompleteMe'
