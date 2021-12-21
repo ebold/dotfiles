@@ -70,7 +70,7 @@ Plug 'scrooloose/nerdtree',                 {'on': 'NERDTreeToggle'}
 "Plug 'zxqfl/tabnine-vim'
 
 "You complete me, YCM"
-Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
