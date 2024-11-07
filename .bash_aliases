@@ -4,9 +4,9 @@ alias tsl101='ssh tsl101' # log in to tsl101
 alias asl751='ssh asl751' # log in to asl751
 
 # tos
-alias cd_bel='cd $HOME/gsi_prj/bel_projects'
-alias cd_bg='cd $HOME/gsi_prj/bel_projects/modules/burst_generator'
-alias cd_fbas='cd $HOME/gsi_prj/bel_projects/modules/fbas'
+alias bel='cd $HOME/gsi_prj/bel_projects'
+alias burst='cd $HOME/gsi_prj/bel_projects/modules/burst_generator'
+alias fbas='cd $HOME/gsi_prj/bel_projects/modules/fbas'
 alias ps_saftd='ps aux | grep saftd'
 ebmon_tcp() { eb-mon -gily "tcp/${1}.acc"; }
 
@@ -32,3 +32,14 @@ alias update='sudo apt update && sudo apt upgrade'          # update Debian-base
 alias clean='sudo apt autoremove && sudo apt clean'         # clean up unused deb packages
 alias agent='eval $(ssh-agent); ssh-add'                    # start SSH agent
 ipa() { ip -4 a show "$1" | grep -oP '(?<=inet\s)\d+(\.\d+){3}'; } # show interface IP address
+
+# youtube-dl
+# -x, --extract-audio
+# -f bestvideo[ext=mp4]+bestaudio[m4a]/best - download separate video & audio files with the best quality, or a single file with the best combination
+# -k, keep temporary file
+# -o %(title)s.%(ext)s - remove youtube ID from the name/title of video
+# --add-metadata - write metadata to the video file
+alias ytdl-mp3="youtube-dl -f bestaudio -x --audio-format mp3 --add-metadata -k -o '%(title)s.%(ext)s'"  # audio stream only (without downloading video file)
+alias ytdl-mp4="youtube-dl -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 -k -o '%(title)s.%(ext)s'" # download video in mp4 format (keep audio file)
+alias ytdl-video="youtube-dl -f best -k -o '%(title)s.%(ext)s'"  # download video with the best quality (keep separate audio & video files)
+alias ytdl='youtube-dl'
