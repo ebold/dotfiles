@@ -1,13 +1,3 @@
-# gsi
-if [ -f ~/.bash_aliases.gsi ]; then
-  . ~/.bash_aliases.gsi
-fi
-
-# private
-if [ -f ~/.bash_aliases.prv ]; then
-  . ~/.bash_aliases.prv
-fi
-
 # popular, created by dan_nanni
 alias please='sudo !!'     # re-run the last command with sudo
 alias ..='cd ..'           # move up one directory level
