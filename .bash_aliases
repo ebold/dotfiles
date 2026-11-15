@@ -1,14 +1,12 @@
 # gsi
-alias lxpool='ssh lxpool' # log in to lxpool
-alias tsl101='ssh tsl101' # log in to tsl101
-alias asl751='ssh asl751' # log in to asl751
+if [ -f ~/.bash_aliases.gsi ]; then
+  . ~/.bash_aliases.gsi
+fi
 
-# tos
-alias bel='cd $HOME/gsi_prj/bel_projects'
-alias burst='cd $HOME/gsi_prj/bel_projects/modules/burst_generator'
-alias fbas='cd $HOME/gsi_prj/bel_projects/modules/fbas'
-alias ps_saftd='ps aux | grep saftd'
-ebmon_tcp() { eb-mon -gily "tcp/${1}.acc"; }
+# private
+if [ -f ~/.bash_aliases.prv ]; then
+  . ~/.bash_aliases.prv
+fi
 
 # popular, created by dan_nanni
 alias please='sudo !!'     # re-run the last command with sudo
@@ -32,8 +30,9 @@ alias update='sudo apt update && sudo apt upgrade'          # update Debian-base
 alias clean='sudo apt autoremove && sudo apt clean'         # clean up unused deb packages
 alias agent='eval $(ssh-agent); ssh-add'                    # start SSH agent
 ipa() { ip -4 a show "$1" | grep -oP '(?<=inet\s)\d+(\.\d+){3}'; } # show interface IP address
+alias ping='ping -c 1 -w 1'
 
-# youtube-dl
+# (obsolete) youtube-dl
 # -x, --extract-audio
 # -f bestvideo[ext=mp4]+bestaudio[m4a]/best - download separate video & audio files with the best quality, or a single file with the best combination
 # -k, keep temporary file
@@ -42,4 +41,12 @@ ipa() { ip -4 a show "$1" | grep -oP '(?<=inet\s)\d+(\.\d+){3}'; } # show interf
 alias ytdl-mp3="youtube-dl -f bestaudio -x --audio-format mp3 --add-metadata -k -o '%(title)s.%(ext)s'"  # audio stream only (without downloading video file)
 alias ytdl-mp4="youtube-dl -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 -k -o '%(title)s.%(ext)s'" # download video in mp4 format (keep audio file)
 alias ytdl-video="youtube-dl -f best -k -o '%(title)s.%(ext)s'"  # download video with the best quality (keep separate audio & video files)
-alias ytdl='youtube-dl'
+
+# python
+alias python='/usr/bin/python3'
+
+# python virtual environment (venv)
+alias venv_python3='source ~/venv/.venv/bin/activate'
+
+# flask
+alias run_flask_app='$ flask --app app run'
