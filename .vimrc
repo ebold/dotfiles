@@ -1,15 +1,3 @@
-" ---------------------------------------------------------------------------- "
-" IMPORTANT NOTICE
-"
-" Prerequisites: installation of 'curl' and 'vim'
-"
-" Install a full version of vim with 'sudo apt install vim' if you get
-" a following error after installing vim-plug:
-"
-" E319: Sorry, the command is not available in this version: call plug#begin('~/.vim/plugged')
-"
-" ---------------------------------------------------------------------------- "
-
 " Disable compatability with old vi
 set nocompatible
 
@@ -18,9 +6,9 @@ set nocompatible
 " -----------------------------------------------------------------------------"
 
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source ~/.vimrc
 endif
 
 " ---------------------------------------------------------------------------- "
@@ -67,13 +55,10 @@ Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'scrooloose/nerdtree',                 {'on': 'NERDTreeToggle'}
 
 "TabNine autocompletion"
-"Plug 'zxqfl/tabnine-vim'
+Plug 'zxqfl/tabnine-vim'
 
 "You complete me, YCM"
-Plug 'ycm-core/YouCompleteMe'
-
-"Vim dispatch"
-Plug 'tpope/vim-dispatch'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -89,7 +74,6 @@ endif
 
 " solarized
 try
-    let g:solarized_termtrans=1 "this fixed grey background in xterm-256color
     colorscheme solarized
 catch
 endtry
@@ -143,10 +127,10 @@ set ttimeout                    " Enable time out
 set ttimeoutlen=0               " Disable key code delay
 
 " Wrapping
-set nowrap                      " Don't wrap long lines
+set wrap                        " Wrap long lines
 set linebreak                   " When wrapping, only at certain characters
-set textwidth=0                 " Turn off physical line wrapping
-set wrapmargin=0                " Turn off physical line wrapping
+"set textwidth=0                 " Turn off physical line wrapping
+"set wrapmargin=0                " Turn off physical line wrapping
 
 " Joining
 set nojoinspaces                " Only one space when joining lines
@@ -332,7 +316,6 @@ augroup end
 " Plugin Configuration                                                         "
 " ---------------------------------------------------------------------------- "
 " NERDTree
-" [Ctrl+n] - toggle file navigation
 map <C-n> :NERDTreeToggle<CR>
 
 " vim-bbye
@@ -426,22 +409,6 @@ if executable('pyls')
         autocmd FileType python setlocal omnifunc=lsp#complete
     augroup end
 endif
-
-" vim-dispatch
-
-" Open quickfix window and scroll to bottom
-" [Ctrl+m] + m  - open quickfix window
-nnoremap    <C-m>m    :copen<CR> <bar> G
-" Build/clean debug and release targets
-" [Ctrl+m] + b   - build a debug and release binaries
-" [Ctlr+m] + b+d - build a debug binary
-" [Ctrl+m] + c   - clean a debug and release binaries
-" [Ctrl+m] + c+d - clean a debug binary
-nnoremap    <C-m>b    :Dispatch! make -C build/debug; make -C build/release<CR>
-nnoremap    <C-m>bd   :Dispatch! make -C build/debug<CR>
-nnoremap    <C-m>br   :Dispatch! make -C build/release<CR>
-nnoremap    <C-m>c    :Dispatch! make clean -C build/debug; make clean -C build/release<CR>
-nnoremap    <C-m>cd   :Dispatch! make clean -C build/debug<CR>
 
 " YCM configuration [2]
 
