@@ -67,3 +67,7 @@ xc-ex()
 # $2: remote path (eg, host:~/myfolder/)
 rsync_newermt_dry() { find * -type f -newermt "$1" | while read file; do echo $file; rsync $2/$file . -n; done }
 
+# pdf
+# pdftotext -f <first_page> -l <last_page> -layout </pdf_file>
+pdf_text() { pdftotext -f $1 -l $2 -layout $3; }
+
